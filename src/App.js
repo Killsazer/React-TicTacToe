@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
 
-function App() {
+export default function Board() {
+  const [click, setClick] = useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="board-row">
+        <Square click={click} setClick={setClick} />
+        <Square click={click} setClick={setClick} />
+        <Square click={click} setClick={setClick} />  
+      </div>
+      <div className="board-row">
+        <Square click={click} setClick={setClick} />  
+        <Square click={click} setClick={setClick} />  
+        <Square click={click} setClick={setClick} />  
+      </div>
+      <div className="board-row">
+        <Square click={click} setClick={setClick} />  
+        <Square click={click} setClick={setClick} />  
+        <Square click={click} setClick={setClick} />
+      </div>
+    </>
   );
 }
 
-export default App;
+function Square({click, setClick}) {
+  const [value, setValue] = useState(null);
+
+  function handleCLick() {
+    if(click % 2 === 0) {
+      setValue('X');
+    }
+    else
+    {
+      setValue('O');
+    }
+    setClick(click + 1);
+  }
+  return <button className="square" onClick = {handleCLick}>{value}</button>
+}
