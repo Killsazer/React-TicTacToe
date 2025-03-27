@@ -18,3 +18,21 @@
     content: '';
     display: table;
   }
+
+  .reset {
+    background-color: #d3cfcd;
+    border: 1 px solid #080808;
+    height: 30px;
+    width: 70px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 20px; /* Відступ від таблички */
+  }
+  
+  .game {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрує по горизонталі */
+    margin-top: 20px; /* Відступ від верху */
+  }
