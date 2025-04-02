@@ -1,5 +1,5 @@
 body {
-  background-color: #EDEDED;
+  background-color: hsl(260 60% 5%);
 }
 
 .game {
@@ -14,13 +14,8 @@ body {
 
 .status {
   margin-bottom: 15px;
-  background-color: white;
-  padding: 10px 10px;
-  border-radius: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  border: 1px solid #e0e0e0;
-  font-size: 17px;
-  color: rgba(0, 0, 0, 0.753);
+  font-size: 22px;
+  color: #A78BFA;
   font-weight: 700;
   animation: statusAnimation 0.5s ease-in-out;
 }
@@ -39,58 +34,95 @@ body {
   100% { transform: scale(1); opacity: 1; }
 }
 
-/* .rnd
-{
-  margin-top: 15px;
-} */
-
-.status-container {
-  display: flex;
-  gap: 10px;
-  width: 100%;
-  margin-top: 20px;
+.status--points {
+  font-size: 20px;
+  color: white;
+  background-color: hsl(260 30% 10%);
+  padding: 10px 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 1px solid hsla(260, 29%, 20%, 0.5);
+  margin-top: 10px;
+  width: 218px;
+  text-align: center;
 }
 
 .square {
-  background-color: #FFFFFF;
-  color: rgba(0, 0, 0, 0.753);
+  padding: 10px 10px;
+  border-radius: 12px;
+  background-color: hsl(260 30% 15%);
+  color: white;
   border: 1px solid rgba(0, 0, 0, 0.479);
   float: left;
-  font-size: 20px;
+  font-size: 40px;
   font-weight: bold;
-  height: 50px;
-  width: 50px;
-  margin-right: -1px;
-  margin-top: -1px;
+  height: 80px;
+  width: 80px;
+  margin-right: 4px;
+  margin-top: 4px;
 }
 
-.reset{
-  margin-top: 10px;
-  background-color: white;
-  color: black;
-  border: 1px solid black;
-  font-size: 20px;
-  font-weight: bold;
-  height: 30px;
-  width: 80px;
-  text-align: center;
-  line-height: 30px;
+.square span {
+  display: inline-block;
+  opacity: 0;
+  transform: scale(0.5);
+  animation: appear 0.3s ease-out forwards;
 }
-.reset:hover{
-  background-color: #F0F0F0;
-  transition: background-color 0.2s
+
+@keyframes appear {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .square:hover{
-  background-color: #F0F0F0;
-  transition: background-color 0.2s
+  background-color: #3b83f6b0;
+  transition: background-color 0.3s
 }
 
-.square--win{
-  color: rgb(139, 50, 50);
+.square--winX{
+  color: #EC4899;
   animation: pulse 1s infinite alternate;
 }
 @keyframes pulse {
   from { transform: scale(1); }
-  to { transform: scale(1.05); }
+  to { transform: scale(1.05);
+      background-color: white;
+      transition: background-color 0.3s }
+}
+
+.square--winO{
+  color: #3B82F6;
+  animation: pulse 1s infinite alternate;
+}
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.05);
+      background-color: white;
+      transition: background-color 0.3s }
+}
+
+.square--x{
+  color: #EC4899;
+}
+.square--o{
+  color: #3B82F6;
+}
+
+.reset{
+  background-color: hsl(260 30% 10%);
+  color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  border: 1px solid hsla(260, 29%, 20%, 0.5);
+  font-size: 18px;
+  font-weight: bold;
+  height: 45px;
+  width: 115px;
+  text-align: center;
+}
+.reset:hover{
+  background-color: #3B82F6;
+  transition: background-color 0.2s
 }
