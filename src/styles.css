@@ -1,44 +1,96 @@
+body {
+  background-color: #EDEDED;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  justify-content: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.status {
+  margin-bottom: 15px;
+  background-color: white;
+  padding: 10px 10px;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 1px solid #e0e0e0;
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.753);
+  font-weight: 700;
+  animation: statusAnimation 0.5s ease-in-out;
+}
+@keyframes statusAnimation {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+.status--win {
+  font-style: italic;
+  animation: winAnimation 0.5s ease-in-out;
+}
+@keyframes winAnimation {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* .rnd
+{
+  margin-top: 15px;
+} */
+
+.status-container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-top: 20px;
+}
+
 .square {
-    background: #fff;
-    border: 1px solid #999;
-    float: left;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 50px;
-    height: 50px;
-    width: 50px;
-    margin-right: -1px;
-    margin-top: -1px;
-    padding: 0;
-    text-align: center;
-  }
+  background-color: #FFFFFF;
+  color: rgba(0, 0, 0, 0.753);
+  border: 1px solid rgba(0, 0, 0, 0.479);
+  float: left;
+  font-size: 20px;
+  font-weight: bold;
+  height: 50px;
+  width: 50px;
+  margin-right: -1px;
+  margin-top: -1px;
+}
 
-  .board-row:after {
-    clear: both;
-    content: '';
-    display: table;
-  }
+.reset{
+  margin-top: 10px;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  font-size: 20px;
+  font-weight: bold;
+  height: 30px;
+  width: 80px;
+  text-align: center;
+  line-height: 30px;
+}
+.reset:hover{
+  background-color: #F0F0F0;
+  transition: background-color 0.2s
+}
 
-  .reset {
-    background-color: #d3cfcd;
-    border: 1 px solid #080808;
-    height: 30px;
-    width: 70px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 15px;
-    margin-top: 10px; /* Відступ від таблички */
-    margin-left: 40px;
-  }
-  
-  .game {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Центрує по горизонталі */
-  }
+.square:hover{
+  background-color: #F0F0F0;
+  transition: background-color 0.2s
+}
 
-  .status {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 27px;
-  }
+.square--win{
+  color: rgb(139, 50, 50);
+  animation: pulse 1s infinite alternate;
+}
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
