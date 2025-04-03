@@ -2,16 +2,6 @@ body {
   background-color: hsl(260 60% 5%);
 }
 
-.game {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  justify-content: center;
-  min-height: 100vh;
-  box-sizing: border-box;
-}
-
 .status {
   margin-bottom: 15px;
   font-size: 22px;
@@ -34,35 +24,14 @@ body {
   100% { transform: scale(1); opacity: 1; }
 }
 
-.pointsStatus{
+.game {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  font-size: 20px;
-  color: white;
-  background-color: hsl(260 30% 10%);
-  padding: 10px 10px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  border: 1px solid hsla(260, 29%, 20%, 0.5);
-  margin-top: 10px;
-  width: 218px;
-}
-
-.pointsStatus--title {
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.pointsStatus--row {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.cent{
-  gap: 110px;
+  padding: 20px;
+  justify-content: center;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .square {
@@ -128,17 +97,54 @@ body {
   color: #3B82F6;
 }
 
+.pointsStatus{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  color: white;
+  background-color: hsl(260 30% 10%);
+  padding: 10px 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 1px solid hsla(260, 29%, 20%, 0.5);
+  margin-top: 10px;
+  width: 240px;
+  box-sizing: border-box;
+}
+
+.pointsStatus--title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.pointsStatus--row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.cent{
+  gap: 110px;
+}
+
+/* .pointsStatus--score{
+  display: block;
+  padding: 10px 10px;
+} */
+
 .reset{
+  font-family: "Times New Roman";
   margin-top: 10px;
   background-color: hsl(260 30% 10%);
   color: white;
-  border: 1px solid black;
   border-radius: 10px;
   border: 1px solid hsla(260, 29%, 20%, 0.5);
-  font-size: 18px;
-  font-weight: bold;
-  height: 45px;
-  width: 160px;
+  padding: 10px 10px;
+  font-size: 20px;
+  height: 50px;
+  width: 150px;
   display: flex;
   justify-content: center;
   align-items: center;

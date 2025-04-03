@@ -5,7 +5,8 @@ export default function Board({
     onSquareClick,
     onReset,
     userPoints,
-    botPoints
+    botPoints,
+    userScore
   }) {
     return (
       <div className='game'>
@@ -45,6 +46,11 @@ export default function Board({
               <div>{botPoints}</div>
               <div>{userPoints}</div>
           </div>
+        </div>
+
+        <div className='pointsStatus'>
+          Набрано очків:
+          <div>{userScore}</div>
         </div>
   
         <button className='reset' onClick={onReset}>

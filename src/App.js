@@ -9,6 +9,7 @@ export default function Game() {
   const [status, setStatus] = useState('');
   const [turn, setTurn] = useState(true);
   const [userPoints, setUserPoints] = useState(0);
+  const [userScore, setUserScore] = useState(0);
   const [botPoints, setBotPoints] = useState(0);
 
   const winner = calculateWinner(squares)?.win;
@@ -22,6 +23,7 @@ export default function Game() {
     }
     if(winner === 'X'){
       setUserPoints(prev => prev+1);
+      setUserScore(prev => prev+5);
     }
     else if(winner === 'O'){
       setBotPoints(prev => prev+1);
@@ -117,6 +119,7 @@ export default function Game() {
       onReset={reset}
       userPoints={userPoints}
       botPoints={botPoints}
+      userScore={userScore}
     />
   );
 }
