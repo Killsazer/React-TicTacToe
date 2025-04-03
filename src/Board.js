@@ -4,7 +4,8 @@ export default function Board({
     winningLine,
     onSquareClick,
     onReset,
-    resetTrigger
+    resetTrigger,
+    // points
   }) {
     return (
       <div className='game'>
@@ -30,7 +31,20 @@ export default function Board({
           <Square value={squares[8]} onSquareClick={() => onSquareClick(8)} isWining={winningLine.includes(8)} x = {squares[8] ==='X'}/>
         </div>
 
-        <div className='status status--points'>Бали</div>
+        {/* <div className='pointsStatus'> */}
+          <div className=' pointsStatus pointsStatus--title'>
+            <div>Виграші</div>
+            <div className="temp">в процесі розробки...</div>
+          </div>
+          {/* <div className='pointsStatus--row'>
+            <div className='pointsStatus--computer'>Комп'ютер</div>
+            <div className='pointsStatus--user'>Користувач</div>
+          </div>
+          <div className='pointsStatus--row'>
+            <div>zero</div>
+            <div>{points}</div>
+          </div>
+        </div> */}
   
         <button className='reset' onClick={onReset}>
           Очистити

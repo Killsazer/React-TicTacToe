@@ -34,7 +34,10 @@ body {
   100% { transform: scale(1); opacity: 1; }
 }
 
-.status--points {
+.pointsStatus{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   font-size: 20px;
   color: white;
   background-color: hsl(260 30% 10%);
@@ -46,6 +49,20 @@ body {
   width: 218px;
   text-align: center;
 }
+
+.temp{
+  font-style: italic;
+}
+
+/* .pointsStatus--title{
+  text-align: center;
+}
+
+.pointsStatus--row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+} */
 
 .square {
   padding: 10px 10px;
@@ -111,6 +128,7 @@ body {
 }
 
 .reset{
+  margin-top: 10px;
   background-color: hsl(260 30% 10%);
   color: white;
   border: 1px solid black;

@@ -9,6 +9,7 @@ export default function Game() {
   const [status, setStatus] = useState('');
   const [resetTrigger, setResetTrigger] = useState(0);
   const [turn, setTurn] = useState(true);
+  // const [userPoints, setUserPoints] = useState(0);
 
   const winner = calculateWinner(squares)?.win;
   const isDraw = calculateWinner(squares);
@@ -109,6 +110,7 @@ export default function Game() {
       onSquareClick={handleClick}
       onReset={reset}
       resetTrigger={resetTrigger}
+      // points={userPoints}
     />
   );
 }
