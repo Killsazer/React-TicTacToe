@@ -95,9 +95,11 @@ export default function Game() {
   }
 
   function reset() {
-    setXIsNext(true);
-    setSquares(Array(9).fill(null));
-    setResetTrigger(prev => prev + 1);
+    if(winner || isDraw === 1){
+      setXIsNext(true);
+      setSquares(Array(9).fill(null));
+      setResetTrigger(prev => prev + 1);
+    }
   }
 
   const winningLine = calculateWinner(squares)?.line || [];
