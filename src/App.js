@@ -7,21 +7,26 @@ export default function Game() {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
   const [status, setStatus] = useState('');
-  const [resetTrigger, setResetTrigger] = useState(0);
   const [turn, setTurn] = useState(true);
-  // const [userPoints, setUserPoints] = useState(0);
+  const [userPoints, setUserPoints] = useState(0);
+  const [botPoints, setBotPoints] = useState(0);
 
   const winner = calculateWinner(squares)?.win;
   const isDraw = calculateWinner(squares);
 
   useEffect(() => {
     if (isDraw === 1) {
-      setResetTrigger(prev => prev + 1);
       setStatus("Нічия!");
     } else {
       setStatus(winner ? "Переможець: " + winner : "Зараз ходять: " + (xIsNext ? "X" : "O"));
     }
-  }, [winner, xIsNext, isDraw]);
+    if(winner === 'X'){
+      setUserPoints(prev => prev+1);
+    }
+    else if(winner === 'O'){
+      setBotPoints(prev => prev+1);
+    }
+  }, [squares, xIsNext]);
 
   function handleClick(i) {
     if (squares[i] || calculateWinner(squares) || !turn) return;
@@ -83,7 +88,7 @@ export default function Game() {
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-        return { win: squares[a], line: [a, b, c] };
+        return { win: squares[a], line: [a, b, c],  };
       }
     }
 
@@ -98,7 +103,6 @@ export default function Game() {
     if(winner || isDraw === 1){
       setXIsNext(true);
       setSquares(Array(9).fill(null));
-      setResetTrigger(prev => prev + 1);
     }
   }
 
@@ -111,8 +115,8 @@ export default function Game() {
       winningLine={winningLine}
       onSquareClick={handleClick}
       onReset={reset}
-      resetTrigger={resetTrigger}
-      // points={userPoints}
+      userPoints={userPoints}
+      botPoints={botPoints}
     />
   );
 }

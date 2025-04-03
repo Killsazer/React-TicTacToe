@@ -4,12 +4,12 @@ export default function Board({
     winningLine,
     onSquareClick,
     onReset,
-    resetTrigger,
-    // points
+    userPoints,
+    botPoints
   }) {
     return (
       <div className='game'>
-        <div className={`status ${status.includes('Переможець') ? 'status--win' : ''}`} key={`-${resetTrigger}`}>
+        <div className={`status ${status.includes('Переможець') ? 'status--win' : ''}`}>
           {status}
         </div>
   
@@ -31,23 +31,24 @@ export default function Board({
           <Square value={squares[8]} onSquareClick={() => onSquareClick(8)} isWining={winningLine.includes(8)} x = {squares[8] ==='X'}/>
         </div>
 
-        {/* <div className='pointsStatus'> */}
-          <div className=' pointsStatus pointsStatus--title'>
+        <div className='pointsStatus'>
+          <div className='pointsStatus--title'>
             <div>Виграші</div>
-            <div className="temp">в процесі розробки...</div>
           </div>
-          {/* <div className='pointsStatus--row'>
-            <div className='pointsStatus--computer'>Комп'ютер</div>
-            <div className='pointsStatus--user'>Користувач</div>
-          </div>
+
           <div className='pointsStatus--row'>
-            <div>zero</div>
-            <div>{points}</div>
+              <div>Комп'ютер</div>
+              <div>Користувач</div>
           </div>
-        </div> */}
+
+          <div className='pointsStatus--row cent'>
+              <div>{botPoints}</div>
+              <div>{userPoints}</div>
+          </div>
+        </div>
   
         <button className='reset' onClick={onReset}>
-          Очистити
+          Очистити поле
         </button>
       </div>
     );
