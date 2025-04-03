@@ -99,7 +99,7 @@ body {
 }
 
 .pointsStatus{
-  font-family: 'Black Ops One', cursive;
+  font-family: 'Russo One', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -118,7 +118,7 @@ body {
 }
 
 .pointsStatus--title {
-  font-family: 'Black Ops One', cursive;
+  font-family: 'Russo One', sans-serif;
   font-size: 20px;
 }
 
