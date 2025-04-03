@@ -27,6 +27,9 @@ export default function Game() {
     }
     else if(winner === 'O'){
       setBotPoints(prev => prev+1);
+      if(userScore > 10){
+        setUserScore(prev => prev-10);
+      }
     }
   }, [squares, xIsNext]);
 
