@@ -38,13 +38,33 @@ export default function Game() {
   }
   
   function botMoves(botSquare){
-    let rnd = Math.floor(Math.random() * 9);
-    while(botSquare[rnd] !== null){
-      rnd = Math.floor(Math.random() * 9);
+    const turn = [0, 2, 6, 8];
+    const filled = turn.every(index => botSquare[index] !== null);
+    if(botSquare[4] === null){
+      botSquare[4] = 'O';
+      setSquares(botSquare);
+      setXIsNext(true); 
     }
-    botSquare[rnd] = 'O';
-    setSquares(botSquare);
-    setXIsNext(true);
+    else{
+      if(filled){
+        let rnd = Math.floor(Math.random() * 9);
+        while(botSquare[rnd] !== null){
+          rnd = Math.floor(Math.random() * 9);
+        }
+        botSquare[rnd] = 'O';
+        setSquares(botSquare);
+        setXIsNext(true);
+      }
+      else{
+        let rnd = Math.floor(Math.random() * turn.length);
+        while(botSquare[turn[rnd]] !== null){
+          rnd = Math.floor(Math.random() * turn.length);
+        }
+        botSquare[turn[rnd]] = 'O';
+        setSquares(botSquare);
+        setXIsNext(true);
+      }
+    }
   }
 
   function calculateWinner(squares) {
