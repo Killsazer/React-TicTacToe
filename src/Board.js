@@ -13,6 +13,11 @@ export default function Board({
         <div className={`status ${status.includes('Переможець') ? 'status--win' : ''}`}>
           {status}
         </div>
+
+        <div className='pointsStatus'>
+          Набрано очків:
+          <div>{userScore}</div>
+        </div>
   
         <div className='board-row'>
           <Square value={squares[0]} onSquareClick={() => onSquareClick(0)} isWining={winningLine.includes(0)} x = {squares[0] ==='X'}/>
@@ -46,11 +51,6 @@ export default function Board({
               <div>{botPoints}</div>
               <div>{userPoints}</div>
           </div>
-        </div>
-
-        <div className='pointsStatus'>
-          Набрано очків:
-          <div>{userScore}</div>
         </div>
   
         <button className='reset' onClick={onReset}>

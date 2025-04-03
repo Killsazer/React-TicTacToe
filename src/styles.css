@@ -3,8 +3,9 @@ body {
 }
 
 .status {
-  margin-bottom: 15px;
-  font-size: 22px;
+  font-family: 'Press Start 2P', cursive;
+  margin-bottom: 10px;
+  font-size: 15px;
   color: #A78BFA;
   font-weight: 700;
   animation: statusAnimation 0.5s ease-in-out;
@@ -98,11 +99,12 @@ body {
 }
 
 .pointsStatus{
+  font-family: 'Black Ops One', cursive;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  font-size: 20px;
+  font-size: 18px;
   color: white;
   background-color: hsl(260 30% 10%);
   padding: 10px 10px;
@@ -110,12 +112,13 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   border: 1px solid hsla(260, 29%, 20%, 0.5);
   margin-top: 10px;
+  margin-bottom: 10px;
   width: 240px;
   box-sizing: border-box;
 }
 
 .pointsStatus--title {
-  font-weight: bold;
+  font-family: 'Black Ops One', cursive;
   font-size: 20px;
 }
 
@@ -135,16 +138,15 @@ body {
 } */
 
 .reset{
-  font-family: "Times New Roman";
-  margin-top: 10px;
+  font-family: 'Russo One', sans-serif;
   background-color: hsl(260 30% 10%);
   color: white;
   border-radius: 10px;
   border: 1px solid hsla(260, 29%, 20%, 0.5);
   padding: 10px 10px;
-  font-size: 20px;
+  font-size: 18px;
   height: 50px;
-  width: 150px;
+  width: 170px;
   display: flex;
   justify-content: center;
   align-items: center;
