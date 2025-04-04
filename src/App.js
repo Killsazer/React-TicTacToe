@@ -1,18 +1,23 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { useCallback } from 'react';
 
 import Board from './Board';
+import useTelegram from './Hooks/useTelegram';
+// import 
 
 export default function Game() {
+  const {tg, WebAppMainButton} = useTelegram();
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
   const [status, setStatus] = useState('');
   const [turn, setTurn] = useState(true);
   const [userPoints, setUserPoints] = useState(0);
-  const [userScore, setUserScore] = useState(0);
   const [botPoints, setBotPoints] = useState(0);
+  const [userScore, setUserScore] = useState(0);
 
   const winner = calculateWinner(squares)?.win;
+  const winningLine = calculateWinner(squares)?.line || [];
   const isDraw = calculateWinner(squares);
 
   useEffect(() => {
@@ -111,7 +116,22 @@ export default function Game() {
     }
   }
 
-  const winningLine = calculateWinner(squares)?.line || [];
+  useEffect(() => {
+    WebAppMainButton.setText(`Your count: ${userScore}`);
+    WebAppMainButton.show();
+  }, [WebAppMainButton, userScore]);
+
+  const onSendData = useCallback(() => {
+      tg.sendData(JSON.stringify({playerCount : userScore}));
+  }, [tg, userScore]);
+
+  useEffect(() => {
+      tg.onEvent('mainButtonClicked', onSendData);
+      return () => {
+          tg.offEvent('mainButtonClicked', onSendData);
+      }
+  }, [tg, onSendData])
+
 
   return (
     <Board

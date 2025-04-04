@@ -1,3 +1,6 @@
+import useTelegram from "./Hooks/useTelegram";
+import { useEffect } from 'react';
+
 export default function Board({
     squares,
     status,
@@ -8,6 +11,12 @@ export default function Board({
     botPoints,
     userScore
   }) {
+    
+    const {tg} = useTelegram();
+    useEffect(() => {
+      tg.ready();
+    });
+  
     return (
       <div className='game'>
         <div className={`status ${status.includes('Переможець') ? 'status--win' : ''}`}>
